@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:sans-serif;
+}
+.container{
+    padding-bottom: 200px;
+    margin-bottom: -55px;
+}
+.container1 {
+    background: url(JSA\ back.png) no-repeat center center;
+    background-size: cover;
+    border: 2px solid #fa250e;
+    border-radius: 8px;
+    padding: 50px;
+    background-color: #d3d3d3; 
+    margin-top: 10px;
+    
+}
+#box-imag {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+h1{
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: oblique;
+    text-align: center;
+    margin-top: 120px;
+    padding-bottom: 0px;
+    margin-bottom: -45;
+    color: rgb(11, 11, 11);
+}
+
+form{
+    margin-top: 20px;
+    font-weight: bold;
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+#logo{
+    width: 144px;
+    margin-bottom: 436px;
+}
+body{
+    display: flex;
+   background-image: url("flag1.jpg");
+   background-repeat: no-repeat;
+   background-size: 1280px;   
+
+  
+}
+.required{
+    color: red;
+}
+
+input{
+    background-color: rgb(24, 243, 243);
+    border: 2px solid red;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+ 
+
+
+@media (max-width: 600px) {
+    form {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+ 
+}
+
+/* For medium screens (min-width 601px and max-width 768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+    form {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+/* For large screens (min-width 769px) */
+@media (min-width: 769px) {
+    form {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+   

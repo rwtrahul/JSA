@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="1.png">
+    <title  style="padding: 10px; font-size: xx-small ;">Jawan Suggestion App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="JSA.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <link rel="stylesheet" href="overlay.css">
+    <link rel="stylesheet" href="button.css">
+
+</head>
+    <body>
+        <section class="container">
+            <h1>JAWAN SUGGESTION APP</h1>
+            <div>
+                <!-- lock screen and showing loading after submission -->
+                <div id="overlay" class="overlay">
+                    <div class="spinner-border text-white" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div style="margin-top: 20px;">Please Wait. . .</div>
+                </div>
+                <form name="submit-to-google-sheet">
+                    <div class="container1" style=" margin-top: 20px;">
+                        <div class="row ">  
+                                <!-- for ARMY no -->
+                            <div class="col">
+                                <label for="formFile" class="form-label">ARMY NO <span class="required">*</span></label>
+                                <input pattern="[J]{1}[C]{1}[0-9]{6}[X]{1}|[J]{1}[C]{1}[0-9]{6}[A]{1}|[J]{1}[C]{1}[0-9]{6}[F]{1}|[J]{1}[C]{1}[0-9]{6}[H]{1}|[J]{1}[C]{1}[0-9]{6}[K]{1}|[J]{1}[C]{1}[0-9]{6}[L]{1}|[J]{1}[C]{1}[0-9]{6}[M]{1}|[J]{1}[C]{1}[0-9]{6}[N]{1}|[J]{1}[C]{1}[0-9]{6}[P]{1}|[J]{1}[C]{1}[0-9]{6}[W]{1}|[J]{1}[C]{1}[0-9]{6}[Y]{1}|
+                                [0-9]{7}[X]{1}|[0-9]{7}[A]{1}|[0-9]{7}[F]{1}|[0-9]{7}[H]{1}|[0-9]{7}[K]{1}|[0-9]{7}[L]{1}|[0-9]{7}[M]{1}|[0-9]{7}[N]{1}|[0-9]{7}[P]{1}|[0-9]{7}[W]{1}|[0-9]{7}[Y]{1}|
+                                [0-9]{8}[X]{1}|[0-9]{8}[A]{1}|[0-9]{8}[F]{1}|[0-9]{8}[H]{1}|[0-9]{8}[K]{1}|[0-9]{8}[L]{1}|[0-9]{8}[M]{1}|[0-9]{8}[N]{1}|[0-9]{8}[P]{1}|[0-9]{8}[W]{1}|[0-9]{8}[Y]{1}|
+                                [T]{1}[A]{1}[0-9]{4}[X]{1}|[T]{1}[A]{1}[0-9]{4}[A]{1}|[T]{1}[A]{1}[0-9]{4}[F]{1}|[T]{1}[A]{1}[0-9]{4}[H]{1}|[T]{1}[A]{1}[0-9]{4}[K]{1}|[T]{1}[A]{1}[0-9]{4}[L]{1}|[T]{1}[A]{1}[0-9]{4}[M]{1}|[T]{1}[A]{1}[0-9]{4}[N]{1}|[T]{1}[A]{1}[0-9]{4}[P]{1}|[T]{1}[A]{1}[0-9]{4}[W]{1}|[0-9]{4}[Y]{1}|
+                                [A]{1}[0-9]{7}[X]{1}|[A]{1}[0-9]{7}[A]{1}|[A]{1}[0-9]{7}[F]{1}|[A]{1}[0-9]{7}[H]{1}|[A]{1}[0-9]{7}[K]{1}|[A]{1}[0-9]{7}[L]{1}|[A]{1}[0-9]{7}[M]{1}|[A]{1}[0-9]{7}[N]{1}|[A]{1}[0-9]{7}[P]{1}|[A]{1}[0-9]{7}[W]{1}|[A]{1}[0-9]{7}[Y]{1}"
+                                type="text" id="formFile"class="form-control" placeholder="Enter Army No(Capital)" name="ARMY NO"  required/>
+                            </div>
+
+                                <!-- for RANK -->
+                            <div class="col">
+                                <label class="form-label">RANK<span class="required">*</span></label>
+                                <select  class="form-select" name="RANK" required  >
+                                    <option value="RECT">RECT</option>
+                                    <option value="RFN" selected>RFN</option>
+                                    <option value="L/NK">L/NK</option>
+                                    <option value="NK">NK</option>
+                                    <option value="L/HAV">L/HAV</option>
+                                    <option value="HAV">HAV</option> 
+                                    <option value="N/SUB">N/SUB</option>
+                                    <option value="SUB">SUB</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- NAME -->
+                        <label class="form-label" >NAME<span class="required">*</span></label>
+                        <input pattern="[A-Za-z ]{1,32}" type="text" class="form-control" placeholder="Enter Your Full Name" name="NAME" required/>
+
+                        <!-- UNIT -->
+                        <label  class="form-label">UNIT<span class="required">*</span></label>
+                            <select class="form-select" name="UNIT"  required>
+                                <option value="GRRC"selected>GRRC</option>
+                                <option value="2 GARH RIF">2 GARH RIF</option>
+                                <option value="3 GARH RIF">3 GARH RIF</option>
+                                <option value="4 GARH RIF">4 GARH RIF</option>
+                                <option value="5 GARH RIF">5 GARH RIF</option>
+                                <option value="6 GARH RIF">6 GARH RIF</option>
+                                <option value="7 GARH RIF">7 GARH RIF</option>
+                                <option value="8 GARH RIF">8 GARH RIF</option>
+                                <option value="9 GARH RIF">9 GARH RIF</option>
+                                <option value="10 GARH RIF">10 GARH RIF</option>
+                                <option value="11 GARH RIF">11 GARH RIF</option>
+                                <option value="12 GARH RIF">12 GARH RIF</option>
+                                <option value="13 GARH RIF">13 GARH RIF</option>
+                                <option value="14 GARH RIF">14 GARH RIF</option>
+                                <option value="15 GARH RIF">15 GARH RIF</option>
+                                <option value="16 GARH RIF">16 GARH RIF</option>
+                                <option value="17 GARH RIF">17 GARH RIF</option>
+                                <option value="18 GARH RIF">18 GARH RIF</option>
+                                <option value="19 GARH RIF">19 GARH RIF</option>
+                                <option value="20 GARH RIF">20 GARH RIF</option>
+                                <option value="21 GARH RIF">21 GARH RIF</option>
+                                <option value="22 GARH RIF">22 GARH RIF</option>
+                                <option value="GARH SCOUT">GARH SCOUT</option>
+                                <option value="121 INF BN(TA)">121 INF BN(TA) GARH RIF</option>
+                                <option value="127 ECO TA">127 ECO TA GARH RIF</option> 
+                            </select>
+                            <!--coy  -->
+                        <label class="form-label">ADM BN<span class="required">*</span></label>
+                        <select class="form-select" name="ADM BN" required>
+                            <option value="'DUTY' Coy"selected>'DUTY' Coy</option>
+                            <option value="'CHQ' Coy">'DEPO' Coy</option>
+                            <option value="'MT PL'">MT PL</option>
+                            <option value="'SIG PL'">SIG PL</option>
+                        </select>
+
+                        <div class="row">
+                                <!-- AADHAR NO -->
+                            <div class="col">
+                                <label for="formFile" class="form-label">AADHAR NO<span class="required">*</span></label>
+                                <input pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="XXXX-XXXX-XXXX" type="text" class="form-control" name="AADHAR NO" required/>
+                            </div>
+
+                            <!-- for MOBILE NO -->
+                            <div class="col">
+                                <label class="form-label">MOBILE NO<span class="required">*</span></label>
+                                <input pattern="[0-9]{10}" class="form-control" placeholder="+91" name="MOBILE NO" required>
+                            </div>
+                        </div>
+
+                         <!-- hidden date/time input field -->
+                         <input type="hidden" id="currentDate" name="DATE">
+
+                            <!-- SUGGESTION BOX -->
+                        <label for="exampleFormControlTextarea1" class="form-label">WRITE YOUR SUGGESTION<span class="required">*</span></label>
+                        <textarea name="SUGGESTION" class="form-control" id="exampleFormControlTextarea1" placeholder="📝Writing. . . . " rows="3" required></textarea>
+                    </div>
+            
+                    <!-- SUBMIT BUTTON -->
+                    <button id="button"  class="btn btn-primary">SUBMIT</button>     
+                    <!-- <a  style="margin-left: 310px; margin-top: 6px;" href="THANKYOU PAGE.HTML" class="btn btn-primary">SUBMIT</a> -->
+                </form>
+                                    <!-- Sending Data to Google Sheet -->
+                    <script>
+                        const scriptURL = 'https://script.google.com/macros/s/AKfycbzrp8nF6XaCJrqvoBPf93bdpZlCvam7qigkXjHiMI2xDRCkrGvpBDwby9h5lrlGZQwDYA/exec' //AMAN API
+                        // const scriptURL ="https://script.google.com/macros/s/AKfycbxwxhMc6-9urPIc-aOZgzjEq0R2mOW-yDsX24k1XrK5E-uxC4h7cIvrzNaNQmq-ZLBx/exec" //RAHUL API
+                        const form = document.forms['submit-to-google-sheet']
+                        // Taking data by js
+                        function setCurrentDate() {           
+                        const currentDate = new Date();
+                        const formattedDate = currentDate.toLocaleDateString('en-GB'); 
+                        document.getElementById('currentDate').value = formattedDate;
+                        }
+                        form.addEventListener('submit', e => {
+                            e.preventDefault()
+                            setCurrentDate();
+                            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                            .then(response =>{
+                                    overlay()   //calling overlay fn to show loading  
+                                    console.log('Response:', response)
+                                    if (response.ok)
+                                        {
+                                    // This replaces the form page and prevents back navigation
+                                        window.location.replace("THANKYOU PAGE.HTML")
+                                        }
+                                    else
+                                    {
+                                        console.error('Error submitting data: ', response.statusText);
+                                        alert('"Alert: Please check your internet connection and try again');
+                                    }       
+                                 })  
+                            .catch(error => {
+                                console.error('Error!', error.message);
+                                alert('There was an issue submitting your form. Please try again.');
+                                });
+                        });
+
+                        //declaring overlay fn here....
+                        function overlay(){
+                            const formElements = form.elements;
+                                for (let element of formElements){
+                                    element.disabled = true; // Disable all form elements
+                                    document.getElementById('overlay').style.display = 'flex'; // Show loading overlay
+                                }
+                            }
+                    </script>   
+            </div>
+        </section>
+    </body>
+</html>
+
+
+
+
+
+
+
+

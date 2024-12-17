@@ -1,0 +1,66 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Body layout with Flexbox */
+body {
+    display: flex;
+    justify-content: center;    /* Center horizontally */
+    align-items: center;        /* Center vertically */
+    height: 100vh;              /* Take full viewport height */
+    background-color: #f4f4f4;  /* Background color (can be replaced with image) */
+}
+
+/* Button Styling */
+#button {
+    
+    font-size: 18px;            /* Font size */
+    background-color: red;  /* red background */
+    color: white;               /* White text color */
+    border: none;               /* No border */
+    border-radius: 5px;         /* Rounded corners */
+    cursor: pointer;           /* Pointer cursor on hover */
+    text-align: center;         /* Center text inside button */
+    display: inline-block;      /* Button as inline-block for proper layout */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+    margin-left: 550px;
+    margin-top: 3px
+}
+
+/* Button hover effect */
+#button:hover {
+    background-color: #45a049;  /* Darker green on hover */
+}
+
+/* For all screen sizes, ensure the button is centered */
+@media (max-width: 1200px) {
+    body {
+        padding: 0; /* Ensure no padding is affecting the layout */
+    }
+    #button{
+        margin-left: 350px;
+    }
+}
+
+/* For smaller screens (max-width: 768px) */
+@media (max-width: 992px) {
+    #button {
+        margin-left: 250px;
+    }
+}
+
+/* For extra small screens (max-width: 600px) */
+@media (max-width: 769px) {
+    #button {
+       margin-left: 200px;
+    }
+}
+@media (max-width:565px){
+    #button{
+        margin-left: 120px;
+    }
+}

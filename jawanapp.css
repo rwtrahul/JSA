@@ -1,0 +1,160 @@
+
+body {
+    background-image: url('jawan\ 2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 100vw; 
+    min-height: 100vh; 
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+h1{
+    font-size: 70px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: oblique;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 35px;
+    color: white;
+}
+
+
+.center {
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+}
+
+/* Adjust the layout for row */
+.row {
+    margin-top: 30%;
+}
+
+/* Media query for screens smaller than 1024px */
+@media (max-width: 1024px) {
+    body {
+        background-size: contain; 
+    }
+}
+
+/* Media query for screens smaller than 992px */
+@media (max-width: 992px) {
+    .col-lg-3 {
+        flex: 0 0 auto;
+        width: 50%; 
+        height: auto; 
+    }
+
+    .head{
+        font-size: 30px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-style: oblique;
+        color: white;
+    }
+
+    /* Adjust font size for smaller screens */
+    .card-title {
+        font-size: 22px; 
+    }
+    h1{
+        font-size: 40px;
+        font-weight: bold;
+        color: white;
+    }
+    }   
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+    body {
+        background-image: url('217.png'); 
+        background-size: cover;
+        background-position: center;
+    }
+    h1{
+        font-size: 40px;
+        font-weight: bold;
+        color: white;
+    }
+
+    
+    .row {
+        margin-top: 50%; 
+    }
+
+    .col-lg-3 {
+        flex: 0 0 auto;
+        width: 40%; 
+        height: auto; 
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+}
+
+/* Media query for screens smaller than 425px (mobile) */
+@media (max-width: 425px) {
+    .col-lg-3 {
+        flex: 0 0 auto;
+        width: 65%; 
+        height: auto; 
+    }
+
+    .card-title {
+        font-size: 18px; 
+    }
+}
+
+/* General card styling */
+.card {
+    background-color: rgb(13, 62, 13);
+    border-color: black;
+    margin: 10px; 
+    top: -50px;
+    color: gold;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    color: gold;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 7px;
+    background-size: 10px;
+}
+
+/* Optional: Use grid layout for cards, adjust for larger screens */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Card layout for smaller screens */
+@media (max-width: 992px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: 1fr; 
+    }
+}
+.card:hover{
+    transform: scale(1.04);
+}
+.btn-primary{
+    background-color: red;
+}
+
+
+
+

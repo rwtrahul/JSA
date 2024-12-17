@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ThankyouPage.css">
+    <link rel="shortcut icon" href="1.png">
+
+    
+<body>
+    <div class="container"> 
+        <div class="popup" id="popup">
+            <img src="Rfn Gabbar Singh,VC.jpg">
+                 <h2 style="color: darkgreen;">JAI HIND</h2> 
+                 <P>YOUR DETAILS HAS BEEN SUCCESSFULLY SUBMITTED</P>
+    
+        </div>   
+    </div>
+    <script>
+        
+       setTimeout(function() {
+            // Try to close the window
+            window.close();
+            
+            // Check if the page was opened by another window and close the opener
+            if (window.opener) {
+                window.opener.close();
+            }
+
+            // If not opened by window.open, attempt to redirect and forcefully close
+            if (window.self === window.top) {
+                window.location.replace("index.html"); // Navigates to blank page if it can't close
+                window.close(); // Attempt to close the window again
+            }
+        }, 5000); // Wait for 5 seconds (adjust if needed)
+    </script>
+</body>
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          

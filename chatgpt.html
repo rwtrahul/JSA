@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jawan Suggestion App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="JSA.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+</head>
+<body>
+
+<section id="sec" class="container my-5">
+    <h1 class="text-center my-4">Jawan Suggestion App</h1>
+    <div id="div1">
+        <form name="submit-to-google-sheet">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="armyNo" class="form-label">ARMY NO <span class="required">*</span></label>
+                    <input pattern="YOUR_PATTERN_HERE" type="text" class="form-control" id="armyNo" placeholder="Enter Army No (Capital)" name="ARMY NO" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">RANK<span class="required">*</span></label>
+                    <select class="form-select" name="RANK" required>
+                        <option value="L/NK">RECT</option>
+                        <option value="RFN" selected>RFN</option>
+                        <option value="L/NK">L/NK</option>
+                        <option value="NK">NK</option>
+                        <option value="L/HAV">L/HAV</option>
+                        <option value="HAV">HAV</option>
+                        <option value="N/SUB">N/SUB</option>
+                        <option value="SUB">SUB</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">NAME<span class="required">*</span></label>
+                <input pattern="[A-Za-z ]{1,32}" type="text" class="form-control" placeholder="Enter Your Full Name" name="NAME" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">UNIT<span class="required">*</span></label>
+                <select class="form-select" name="UNIT" required>
+                    <option value="GRRC">GRRC</option>
+                    <option value="2 GARH RIF">02 GARH RIF</option>
+                    <option value="3 GARH RIF">03 GARH RIF</option>
+                    <option value="4 GARH RIF">04 GARH RIF</option>
+                    <option value="5 GARH RIF">05 GARH RIF</option>
+                    <option value="6 GARH RIF">06 GARH RIF</option>
+                    <option value="7 GARH RIF">07 GARH RIF</option>
+                    <option value="8 GARH RIF">08 GARH RIF</option>
+                    <option value="9 GARH RIF">09 GARH RIF</option>
+                    <option value="10 GARH RIF">10 GARH RIF</option>
+                    <option value="11 GARH RIF">11 GARH RIF</option>
+                    <option value="12 GARH RIF">12 GARH RIF</option>
+                    <option value="13 GARH RIF">13 GARH RIF</option>
+                    <option value="14 GARH RIF">14 GARH RIF</option>
+                    <option value="15 GARH RIF">15 GARH RIF</option>
+                    <option value="16 GARH RIF">16 GARH RIF</option>
+                    <option value="17 GARH RIF">17 GARH RIF</option>
+                    <option value="18 GARH RIF">18 GARH RIF</option>
+                    <option value="19 GARH RIF">19 GARH RIF</option>
+                    <option value="20 GARH RIF">20 GARH RIF</option>
+                    <option value="21 GARH RIF">21 GARH RIF</option>
+                    <option value="22 GARH RIF">22 GARH RIF</option>
+                    <option value="GARH SCOUT">GARH SCOUT</option>
+                    <option value="121 INF BN(TA)">121 INF BN(TA) GARH RIF</option>
+                    <option value="127 ECO TA">127 ECO TA GARH RIF</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">TRG BN<span class="required">*</span></label>
+                <select class="form-select" name="TRG BN" required>
+                    <option value="A">'A' Coy</option>
+                    <option value="B">'B' Coy</option>
+                    <option value="C">'C' Coy</option>
+                    <option value="D">'D' Coy</option>
+                    <option value="E">'E' Coy</option>
+                    <option value="F">'F' Coy</option>
+                </select>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="aadharNo" class="form-label">AADHAR NO<span class="required">*</span></label>
+                    <input pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="XXXX-XXXX-XXXX" type="text" class="form-control" name="AADHAR NO" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">MOBILE NO<span class="required">*</span></label>
+                    <input pattern="[0-9]{10}" class="form-control" placeholder="+91" name="MOBILE NO" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="suggestion" class="form-label">WRITE YOUR SUGGESTION<span class="required">*</span></label>
+                <textarea name="SUGGESTION" class="form-control" id="suggestion" placeholder="📝Writing..." rows="3" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+        </form>
+
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyW3jqgOVOmpkmPM3RdlomcvSBwqTdJn3AMbzqq1kcQiLEl4QIFG4Ec-vCMCs78J76J/exec';
+            const form = document.forms['submit-to-google-sheet'];
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                    .then(response => console.log('Success!', response))
+                    .catch(error => console.error('Error!', error.message));
+            });
+        </script>
+    </div>
+</section>
+
+</body>
+</html>
+Key Changes for Responsiveness
+Grid System: Used Bootstrap's grid system (col-md-6) to ensure that elements stack appropriately on smaller screens and take up half the width on medium screens and above.
+Form Elements: Wrapped form fields in row and col classes to manage spacing and layout effectively.
+Margin and Padding: Utilized Bootstrap's utility classes (like mb-3) for consistent spacing between form elements.
+Testing Responsiveness
+To check the responsiveness:
+
+Resize the Browser: Use your browser's developer tools (F12 or right-click > Inspect) and toggle the device toolbar to see how it behaves on different screen sizes.
+Test on Devices: If possible, check the form on actual devices (smartphones, tablets) to ensure a good user experience.
+If you still experience issues, please let me know the specific parts that are not responding correctly, and we can troubleshoot further!
+
+
+
+You said:
+please do correction on this code and give responsive code of this
+ChatGPT said:
+ChatGPT
+Sure! Here's the updated HTML code with corrections to ensure it's fully responsive using Bootstrap. I made some adjustments for better structure and responsiveness:
+
+Updated Responsive HTML Code
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jawan Suggestion App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="JSA.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+</head>
+<body>
+
+<section id="sec" class="container my-5">
+    <h1 class="text-center my-4">Jawan Suggestion App</h1>
+    <div id="div1">
+        <form name="submit-to-google-sheet">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="armyNo" class="form-label">ARMY NO <span class="required">*</span></label>
+                    <input pattern="[J]{1}[C]{1}[0-9]{6}[X]{1}|[J]{1}[C]{1}[0-9]{6}[A]{1}|[0-9]{10}" type="text" class="form-control" id="armyNo" placeholder="Enter Army No (Capital)" name="ARMY NO" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">RANK <span class="required">*</span></label>
+                    <select class="form-select" name="RANK" required>
+                        <option value="L/NK">RECT</option>
+                        <option value="RFN" selected>RFN</option>
+                        <option value="L/NK">L/NK</option>
+                        <option value="NK">NK</option>
+                        <option value="L/HAV">L/HAV</option>
+                        <option value="HAV">HAV</option>
+                        <option value="N/SUB">N/SUB</option>
+                        <option value="SUB">SUB</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">NAME <span class="required">*</span></label>
+                <input pattern="[A-Za-z ]{1,32}" type="text" class="form-control" placeholder="Enter Your Full Name" name="NAME" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">UNIT <span class="required">*</span></label>
+                <select class="form-select" name="UNIT" required>
+                    <option value="GRRC">GRRC</option>
+                    <option value="2 GARH RIF">02 GARH RIF</option>
+                    <option value="3 GARH RIF">03 GARH RIF</option>
+                    <option value="4 GARH RIF">04 GARH RIF</option>
+                    <option value="5 GARH RIF">05 GARH RIF</option>
+                    <option value="6 GARH RIF">06 GARH RIF</option>
+                    <option value="7 GARH RIF">07 GARH RIF</option>
+                    <option value="8 GARH RIF">08 GARH RIF</option>
+                    <option value="9 GARH RIF">09 GARH RIF</option>
+                    <option value="10 GARH RIF">10 GARH RIF</option>
+                    <option value="11 GARH RIF">11 GARH RIF</option>
+                    <option value="12 GARH RIF">12 GARH RIF</option>
+                    <option value="13 GARH RIF">13 GARH RIF</option>
+                    <option value="14 GARH RIF">14 GARH RIF</option>
+                    <option value="15 GARH RIF">15 GARH RIF</option>
+                    <option value="16 GARH RIF">16 GARH RIF</option>
+                    <option value="17 GARH RIF">17 GARH RIF</option>
+                    <option value="18 GARH RIF">18 GARH RIF</option>
+                    <option value="19 GARH RIF">19 GARH RIF</option>
+                    <option value="20 GARH RIF">20 GARH RIF</option>
+                    <option value="21 GARH RIF">21 GARH RIF</option>
+                    <option value="22 GARH RIF">22 GARH RIF</option>
+                    <option value="GARH SCOUT">GARH SCOUT</option>
+                    <option value="121 INF BN(TA)">121 INF BN(TA) GARH RIF</option>
+                    <option value="127 ECO TA">127 ECO TA GARH RIF</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">TRG BN <span class="required">*</span></label>
+                <select class="form-select" name="TRG BN" required>
+                    <option value="A">'A' Coy</option>
+                    <option value="B">'B' Coy</option>
+                    <option value="C">'C' Coy</option>
+                    <option value="D">'D' Coy</option>
+                    <option value="E">'E' Coy</option>
+                    <option value="F">'F' Coy</option>
+                </select>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="aadharNo" class="form-label">AADHAR NO <span class="required">*</span></label>
+                    <input pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="XXXX-XXXX-XXXX" type="text" class="form-control" name="AADHAR NO" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">MOBILE NO <span class="required">*</span></label>
+                    <input pattern="[0-9]{10}" class="form-control" placeholder="Enter Mobile Number" name="MOBILE NO" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="suggestion" class="form-label">WRITE YOUR SUGGESTION <span class="required">*</span></label>
+                <textarea name="SUGGESTION" class="form-control" id="suggestion" placeholder="📝 Writing..." rows="3" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+        </form>
+
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyW3jqgOVOmpkmPM3RdlomcvSBwqTdJn3AMbzqq1kcQiLEl4QIFG4Ec-vCMCs78J76J/exec';
+            const form = document.forms['submit-to-google-sheet'];
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                    .then(response => console.log('Success!', response))
+                    .catch(error => console.error('Error!', error.message));
+            });
+        </script>
+    </div>
+</section>
+
+</body>
+</html>
